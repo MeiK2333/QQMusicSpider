@@ -12,7 +12,10 @@ class QQMisicSpiderPipeline(object):
 
     def toplist_item(self, item, spider):
         collections = self.db.toplist
-        collections.insert_one(item['data'])
+        collections.update_one({
+            'rank_type_value': item['data']['rank_type_value'],
+            'update_time': item['data']['update_time']},
+            {'$set': item['data']}, upsert=True)
 
     def close_spider(self, spider):
         pass
