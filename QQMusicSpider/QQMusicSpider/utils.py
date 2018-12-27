@@ -23,3 +23,16 @@ class RankType(Enum):
     香港电台榜 = 113
     香港商台榜 = 114
     美国iTunes榜 = 123
+
+
+def comments_params(song_id, page_num=0, page_size=25):
+    params = {
+        'format': 'json',
+        'reqtype': '2',
+        'biztype': '1',
+        'topid': str(song_id),
+        'cmd': '8',
+        'pagenum': str(page_num),
+        'pagesize': str(page_size)
+    }
+    return params

@@ -35,7 +35,7 @@ class RanklistSpider(scrapy.Spider):
         if rank_type.value > 100:
             params['type'] = 'global'
 
-        yield scrapy.FormRequest(f'https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg', formdata=params, meta={'rank_type': rank_type})
+        yield scrapy.FormRequest(f'https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg', method='GET', formdata=params, meta={'rank_type': rank_type})
 
     def parse(self, response):
         """ 解析排行信息 """
