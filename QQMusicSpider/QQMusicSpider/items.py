@@ -1,5 +1,6 @@
 import scrapy
 
 
-class QqmusicspiderItem(scrapy.Item):
-    pass
+class QQMusicItem(scrapy.Item):
+    item_type = scrapy.Field()
+    data = scrapy.Field()

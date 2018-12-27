@@ -66,7 +66,7 @@ COOKIES_ENABLED = False
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'QQMusicSpider.pipelines.QqmusicspiderPipeline': 300,
+    'QQMusicSpider.pipelines.QQMisicSpiderPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
