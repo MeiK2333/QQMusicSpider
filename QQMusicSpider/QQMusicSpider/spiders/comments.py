@@ -27,8 +27,6 @@ class CommentsSpider(scrapy.Spider):
                                              'item': jtem,
                                              'page_num': 0
                                          })
-                break
-            break
 
     def parse(self, response):
         data = json.loads(response.body_as_unicode())
