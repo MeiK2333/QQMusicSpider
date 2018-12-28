@@ -1,4 +1,7 @@
+import os
 from enum import Enum
+
+import pymongo
 
 
 class RankType(Enum):
@@ -36,3 +39,9 @@ def comments_params(song_id, page_num=0, page_size=25):
         'pagesize': str(page_size)
     }
     return params
+
+
+def MongoClient():
+    client = pymongo.MongoClient(os.environ.get(
+        'MONGO_URL', 'mongodb://localhost'))
+    return client

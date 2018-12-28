@@ -1,9 +1,9 @@
-import pymongo
+from QQMusicSpider.utils import MongoClient
 
 
 class QQMisicSpiderPipeline(object):
     def __init__(self):
-        self.client = pymongo.MongoClient()
+        self.client = MongoClient()
         self.db = self.client.qqmusic
 
     def process_item(self, item, spider):

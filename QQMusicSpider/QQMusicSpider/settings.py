@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
+import os
 
-# Scrapy settings for QQMusicSpider project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     https://doc.scrapy.org/en/latest/topics/settings.html
-#     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+# REDIS_START_URLS_AS_SET = True
+REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost')
 
 LOG_LEVEL = 'INFO'
 BOT_NAME = 'QQMusicSpider'

@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 import json
 
-import pymongo
 import scrapy
 
-from QQMusicSpider.utils import comments_params
 from QQMusicSpider.items import QQMusicItem
+from QQMusicSpider.utils import MongoClient, comments_params
 
 
 class CommentsSpider(scrapy.Spider):
@@ -13,7 +12,7 @@ class CommentsSpider(scrapy.Spider):
     allowed_domains = ['y.qq.com']
 
     def start_requests(self):
-        collections = pymongo.MongoClient().qqmusic.toplist
+        collections = MongoClient().qqmusic.toplist
         all_data = collections.find()
         for item in all_data:
             for jtem in item['songlist']:
