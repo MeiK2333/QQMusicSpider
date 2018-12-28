@@ -2,14 +2,16 @@
 import json
 
 import scrapy
+from scrapy_redis.spiders import RedisCrawlSpider
 
 from QQMusicSpider.items import QQMusicItem
 from QQMusicSpider.utils import MongoClient, comments_params
 
 
-class CommentsSpider(scrapy.Spider):
+class CommentsSpider(RedisCrawlSpider):
     name = 'comments'
     allowed_domains = ['y.qq.com']
+    redis_key = 'comments:start_urls'
 
     def start_requests(self):
         collections = MongoClient().qqmusic.toplist
