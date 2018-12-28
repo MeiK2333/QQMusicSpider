@@ -23,7 +23,10 @@ scrapy crawl toplist  # 爬取排行榜
 scrapy crawl comments  # 爬取评论
 ```
 
+注意：为了提高性能，请对 `qqmusic.comments` 建立联合索引 `{'commentid': 1, 'songid': 1}`
+
 ## TODO
 
 - Airflow 任务调度
 - 分布式数据处理与分析
+- 发现了个很狗的问题：数据量太大了。。。。。。MongoDB 根本存不下，考虑更新存储方式
