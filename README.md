@@ -2,6 +2,10 @@
 
 QQ Music Spider
 
+## Require
+
+- Python 3.6 or higher
+
 ## Usage
 
 ```bash
@@ -21,6 +25,5 @@ scrapy crawl comments  # 爬取评论
 
 ## TODO
 
-- 分布式爬虫
 - Airflow 任务调度
 - 分布式数据处理与分析
