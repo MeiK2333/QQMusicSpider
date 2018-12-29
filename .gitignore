@@ -102,4 +102,13 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# VSCode
 .vscode/
+
+# Airflow
+airflow.db
+airflow-webserver.pid
+airflow.cfg
+unittests.cfg
+Airflow/logs/

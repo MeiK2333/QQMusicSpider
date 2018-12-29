@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 import os
 
-SCHEDULER = "scrapy_redis.scheduler.Scheduler"
-DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+# SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+# SCHEDULER_IDLE_BEFORE_CLOSE = 10
 # REDIS_START_URLS_AS_SET = True
-REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost')
+# REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost')
 
 LOG_LEVEL = 'INFO'
 BOT_NAME = 'QQMusicSpider'

@@ -2,32 +2,35 @@
 import json
 
 import scrapy
-from scrapy_redis.spiders import RedisCrawlSpider
+# from scrapy_redis.spiders import RedisCrawlSpider
 
 from QQMusicSpider.items import QQMusicItem
 from QQMusicSpider.utils import MongoClient, comments_params
 
 
-class CommentsSpider(RedisCrawlSpider):
+class CommentsSpider(scrapy.Spider):
     name = 'comments'
     allowed_domains = ['y.qq.com']
-    redis_key = 'comments:start_urls'
+    # redis_key = 'comments:start_urls'
 
     def start_requests(self):
+        cnt = int(getattr(self, 'cnt', 0))
+        self.logger.info(f'获取第 {cnt} 项的评论')
         collections = MongoClient().qqmusic.toplist
         all_data = collections.find()
-        for item in all_data:
-            for jtem in item['songlist']:
-                song_id = jtem['data']['songid']
-                params = comments_params(song_id)
-                yield scrapy.FormRequest(f'https://c.y.qq.com/base/fcgi-bin/fcg_global_comment_h5.fcg',
-                                         method='GET',
-                                         formdata=params,
-                                         meta={
-                                             'song_id': song_id,
-                                             'item': jtem,
-                                             'page_num': 0
-                                         })
+        item = all_data[cnt]
+        # for item in all_data:
+        for jtem in item['songlist']:
+            song_id = jtem['data']['songid']
+            params = comments_params(song_id)
+            yield scrapy.FormRequest(f'https://c.y.qq.com/base/fcgi-bin/fcg_global_comment_h5.fcg',
+                                     method='GET',
+                                     formdata=params,
+                                     meta={
+                                            'song_id': song_id,
+                                            'item': jtem,
+                                            'page_num': 0
+                                     })
 
     def parse(self, response):
         data = json.loads(response.body_as_unicode())
