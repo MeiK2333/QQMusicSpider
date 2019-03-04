@@ -1,24 +1,25 @@
 # -*- coding: utf-8 -*-
-import os
 
-# SCHEDULER = "scrapy_redis.scheduler.Scheduler"
-# DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
-# SCHEDULER_IDLE_BEFORE_CLOSE = 10
-# REDIS_START_URLS_AS_SET = True
-# REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost')
+# Scrapy settings for spider project
+#
+# For simplicity, this file contains only settings considered important or
+# commonly used. You can find more settings consulting the documentation:
+#
+#     https://doc.scrapy.org/en/latest/topics/settings.html
+#     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
+#     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-LOG_LEVEL = 'INFO'
-BOT_NAME = 'QQMusicSpider'
+BOT_NAME = 'spider'
 
-SPIDER_MODULES = ['QQMusicSpider.spiders']
-NEWSPIDER_MODULE = 'QQMusicSpider.spiders'
+SPIDER_MODULES = ['spider.spiders']
+NEWSPIDER_MODULE = 'spider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'QQMusicSpider (+http://www.yourdomain.com)'
+#USER_AGENT = 'spider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -32,40 +33,40 @@ ROBOTSTXT_OBEY = False
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-COOKIES_ENABLED = False
+#COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-# DEFAULT_REQUEST_HEADERS = {
+#DEFAULT_REQUEST_HEADERS = {
 #   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #   'Accept-Language': 'en',
-# }
+#}
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-# SPIDER_MIDDLEWARES = {
-#    'QQMusicSpider.middlewares.QqmusicspiderSpiderMiddleware': 543,
-# }
+#SPIDER_MIDDLEWARES = {
+#    'spider.middlewares.SpiderSpiderMiddleware': 543,
+#}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    'QQMusicSpider.middlewares.QqmusicspiderDownloaderMiddleware': 543,
-# }
+#DOWNLOADER_MIDDLEWARES = {
+#    'spider.middlewares.SpiderDownloaderMiddleware': 543,
+#}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
-# EXTENSIONS = {
+#EXTENSIONS = {
 #    'scrapy.extensions.telnet.TelnetConsole': None,
-# }
+#}
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-    'QQMusicSpider.pipelines.QQMisicSpiderPipeline': 300,
-}
+#ITEM_PIPELINES = {
+#    'spider.pipelines.SpiderPipeline': 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
